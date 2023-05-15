@@ -1,0 +1,34 @@
+drop database if exists fsalon;
+create database fsalon;
+use fsalon;
+create table fsalon(
+sifra int not null primary key auto_increment,
+naziv varchar (50) not null,
+adresea varchar(50),
+radnovrijeme datetime
+);
+
+create table djelatnice(
+sifra int not null primary key auto_increment,
+ime varchar (50) not null,
+prezime varchar(50),
+usluga varchar(50) int
+);
+
+create table usluge(
+sifra int not null primary key auto_increment,
+cijena decimal(18,2),
+naziv varchar(50) int
+);
+
+create table korisnik(
+sifra int not null primary key auto_increment,
+ime varchar (50) int not null,
+prezime varchar(50),
+telefon varchar(50),
+mailadresa varchar(50)
+);
+
+alter table fsalon add foreign key (usluge) references usluge(sifra);
+alter table korisnik add foreign key (ime) references fsalon(sifra);
+alter table usluge add foreign key (naziv) references djelatnice(usluga);
