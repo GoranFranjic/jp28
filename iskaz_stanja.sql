@@ -1,14 +1,14 @@
 
-# c:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\Goran\Documents\EdunovaJP28\Iskaz_Stanja.sql
+# c:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\Goran\OneDrive\Dokumenti\GitHub\jp28\iskaz_stanja.sql
 
 drop database if exists iskaz;
 create database iskaz;
 use iskaz;
 
 
-create table unos(
+create table iskaz(
 	sifra int not null primary key,
-	lijek int not null,
+	artikal int not null,
 	kolicina varchar(50) not null,
 	utrosak varchar(50) not null,
 	datum_unosa datetime,
@@ -16,7 +16,7 @@ create table unos(
 
     );
 
-    create table lijek(
+    create table artikli(
 	sifra int not null primary key auto_increment,
 	naziv varchar(20),
     jed_mjere int not null,
@@ -24,13 +24,13 @@ create table unos(
 	
 );
 
-    create table jed_mjere(
+    create table jed_mjera(
 	sifra int not null primary key auto_increment,
 	naziv varchar(50) not null
 	
 );
 
-create table djelatnik(
+create table djelatnici(
 	sifra int not null primary key,
 	ime varchar(50) not null,
 	prezime varchar(50) not null,
@@ -38,11 +38,11 @@ create table djelatnik(
 	ambulanta varchar(100)
 );
 
-alter table unos add foreign key(lijek)
-references lijek(sifra);
+alter table iskaz add foreign key(artikal)
+references artikli(sifra);
 
-alter table unos add foreign key(djelatnik)
-references djelatnik(sifra);
+alter table iskaz add foreign key(djelatnik)
+references djelatnici(sifra);
 
-alter table lijek add foreign key(jed_mjere)
-references jed_mjere(sifra);
+alter table artikli add foreign key(jed_mjere)
+references jed_mjera(sifra);
