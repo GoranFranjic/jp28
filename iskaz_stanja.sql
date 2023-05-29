@@ -18,7 +18,7 @@ create table iskaz(
 
     create table artikli(
 	sifra int not null primary key auto_increment,
-	naziv varchar(20),
+	naziv varchar(50),
     jed_mjere int not null,
 	cijena decimal(18,2)
 	
@@ -68,7 +68,7 @@ oib,ambulanta) values
 select * from artikli;
 
 insert into artikli (sifra,naziv,jed_mjere,cijena) values
-(null,'NaCL 100 ml',133,15);
+(null,'NaCL 100 ml',127,15);
 
 
 
