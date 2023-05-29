@@ -11,7 +11,7 @@ create table iskaz(
 	artikal int not null,
 	kolicina varchar(50) not null,
 	utrosak varchar(50) not null,
-	datum_unosa datetime,
+	datum_unosa date,
 	djelatnik int not null
 
     );
@@ -70,7 +70,10 @@ select * from artikli;
 insert into artikli (sifra,naziv,jed_mjere,cijena) values
 (null,'NaCL 100 ml',127,15);
 
+select * from iskaz;
 
+insert into iskaz (sifra,artikal,kolicina,utrosak,datum_unosa,djelatnik) values
+(null,1,7,5,20230522,1);
 
 
 
