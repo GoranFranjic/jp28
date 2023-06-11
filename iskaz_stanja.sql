@@ -6,7 +6,7 @@ create database iskaz;
 use iskaz;
 
 
-create table iskaz(
+create table iskazi(
 	sifra int not null primary key auto_increment,
 	artikal int not null,
 	kolicina varchar(50) not null,
@@ -38,10 +38,10 @@ create table djelatnici(
 	ambulanta varchar(100)
 );
 
-alter table iskaz add foreign key(artikal)
+alter table iskazi add foreign key(artikal)
 references artikli(sifra);
 
-alter table iskaz add foreign key(djelatnik)
+alter table iskazi add foreign key(djelatnik)
 references djelatnici(sifra);
 
 alter table artikli add foreign key(jed_mjere)
@@ -70,10 +70,10 @@ select * from artikli;
 insert into artikli (sifra,naziv,jed_mjere,cijena) values
 (null,'NaCL 100 ml',127,15);
 
-select * from iskaz;
+select * from iskazi;
 
-insert into iskaz (sifra,artikal,kolicina,utrosak,datum_unosa,djelatnik) values
-(null,1,7,5,20230522,1);
+insert into iskazi (sifra,artikal,kolicina,utrosak,datum_unosa,djelatnik) values
+(null,1,7,5,'2023-05-22',1);
 
 
 
