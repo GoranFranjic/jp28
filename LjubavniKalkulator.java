@@ -6,13 +6,13 @@ public class LjubavniKalkulator {
 
 	public static void main(String[] args) {
 		
-		Scanner scanner = new Scanner(System.in);
+		Scanner unos = new Scanner(System.in);
 
         System.out.println("Unesite prvo ime:");
-        String ime1 = scanner.nextLine();
+        String ime1 = unos.nextLine();
 
         System.out.println("Unesite drugo ime:");
-        String ime2 = scanner.nextLine();
+        String ime2 = unos.nextLine();
 
         int[] ponavljanjeSlova = izracunajPonavljanjeSlova(ime1, ime2);
 
