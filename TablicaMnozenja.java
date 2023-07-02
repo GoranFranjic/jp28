@@ -1,9 +1,16 @@
 package edunova;
 
+import java.util.Scanner;
+
 public class TablicaMnozenja {
 	public static void main(String[] args) {
 		int size = 9;
 
+		Scanner unos = new Scanner(System.in);
+        System.out.print("Unesite svoje ime: ");
+        String ime = unos.nextLine();
+        unos.close();
+				
 		System.out.println("//      -------------------------------");
 		System.out.println("//	: : :  TABLICA  MNOZENJA  : : :");
 		System.out.println("//	-------------------------------");
@@ -23,7 +30,7 @@ public class TablicaMnozenja {
 		}
 
 		System.out.println("//	-------------------------------");
-		System.out.println("//	:  :  :  :  :  :   :by GoranF");
+		System.out.println("//	:  :  :  :  :  :   :by " + ime);
 		System.out.println("//	-------------------------------");
 	}
 }
