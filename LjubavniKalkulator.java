@@ -1,60 +1,134 @@
 package edunova;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LjubavniKalkulator {
 
 	public static void main(String[] args) {
-		
+
 		Scanner unos = new Scanner(System.in);
 
-        System.out.println("Unesite prvo ime:");
-        String ime1 = unos.nextLine();
+		System.out.println("Unesite prvo ime:");
+		String ime1 = unos.nextLine();
 
-        System.out.println("Unesite drugo ime:");
-        String ime2 = unos.nextLine();
+		System.out.println("Unesite drugo ime:");
+		String ime2 = unos.nextLine();
 
-        int[] ponavljanjeSlova = izracunajPonavljanjeSlova(ime1, ime2);
+		String s = ime1.toLowerCase() + ime2.toLowerCase();
 
-        System.out.println("Ponavljanje slova u imenima:");
-        ispisiPonavljanjeSlova(ponavljanjeSlova);
-    }
+		int[] niz = new int[ime1.length() + ime2.length()];
 
-    public static int[] izracunajPonavljanjeSlova(String ime1, String ime2) {
-        int[] ponavljanjeSlova = new int[26];
-        for (int i = 0; i < ime1.length(); i++) {
-            char slovo = ime1.charAt(i);
-            if (Character.isLetter(slovo)) {
-                slovo = Character.toLowerCase(slovo);
-                ponavljanjeSlova[slovo - 'a']++;
-            }
+		int b;
+		char z;
+		for (int i = 0; i < s.length(); i++) {
+			z = s.charAt(i);
+			b = 0;
+			for (int j = 0; j < s.length(); j++) {
+				if (s.charAt(j) == z) {
+					b++;
+				}
+			}
+			niz[i] = b;
+
+		}
+		System.out.println(Arrays.toString(niz));
+		
+		
+	
+		int[] nizDva = niz;
+
+        int duljina = nizDva.length;
+        StringBuilder nizTri = new StringBuilder();
+
+        for (int i = 0; i < duljina / 2; i++) {
+            nizTri.append(nizDva[i] + nizDva[duljina - 1 - i]);
         }
-        for (int i = 0; i < ime2.length(); i++) {
-            char slovo = ime2.charAt(i);
-            if (Character.isLetter(slovo)) {
-                slovo = Character.toLowerCase(slovo);
-                ponavljanjeSlova[slovo - 'a']++;
-            }
-        }
-        return ponavljanjeSlova;
-    }
 
-    public static void ispisiPonavljanjeSlova(int[] ponavljanjeSlova) {
-        for (int i = 0; i < ponavljanjeSlova.length; i++) {
-            if (ponavljanjeSlova[i] > 0) {
-                char slovo = (char) ('a' + i);
-                System.out.println(slovo + ": " + ponavljanjeSlova[i]);
-            }
-		
-		
-		
-		
-		
-		
-		
+        if (duljina % 2 != 0) {
+            nizTri.append(nizDva[duljina / 2]);
         }
+
+        System.out.println(nizTri);
+        
+        
+        int[] novoNiz = new int[nizTri.length()];
+        for (int i = 0; i < nizTri.length(); i++) {
+            novoNiz[i] = Character.getNumericValue(nizTri.charAt(i));
+        }
+
+        duljina = novoNiz.length;
+        nizTri = new StringBuilder();
+
+        for (int i = 0; i < duljina / 2; i++) {
+        	nizTri.append(novoNiz[i] + novoNiz[duljina - 1 - i]);
+        }
+
+        if (duljina % 2 != 0) {
+        	nizTri.append(novoNiz[duljina / 2]);
+        }
+
+        System.out.println("Rezultat druge petlje je: " + nizTri);
+
+		
+        int[] zadnjiNiz = new int[nizTri.length()];
+        for (int i = 0; i < nizTri.length(); i++) {
+            zadnjiNiz[i] = Character.getNumericValue(nizTri.charAt(i));
+        }
+
+        duljina = zadnjiNiz.length;
+        nizTri = new StringBuilder();
+
+        for (int i = 0; i < duljina / 2; i++) {
+        	nizTri.append(zadnjiNiz[i] + zadnjiNiz[duljina - 1 - i]);
+        }
+
+        if (duljina % 2 != 0) {
+        	nizTri.append(zadnjiNiz[duljina / 2]);
+        }
+
+        System.out.println("Rezultat zadnje petlje je: " + nizTri);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+/*System.out.println(ljubav(niz));
+	}
+
+	private static int ljubav(int[] niz) {
+		
+		if(niz.length<3) {
+		
+		String s="";
+		
+		for(int i: niz) {
+			
+			s+=i;
+		}
+		if (Integer.parseInt(s)<100) {
+			
+			return Integer.parseInt(s);
+		}
+		}
+		
+		int[] noviNiz = {1,3};
+		return ljubav(noviNiz);*/
+		
+		
 		
 	}
 	
-	
-    }
+}
