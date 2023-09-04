@@ -2,7 +2,7 @@ package edunova;
 
 import javax.swing.JOptionPane;
 
-public class E04Ulaz {
+public class CiklicnaMatrica {
 
     public static void main(String[] args) {
 
@@ -26,18 +26,30 @@ public class E04Ulaz {
             for (int i = gornjaGranicaStupaca; i >= donjaGranicaStupaca; i--) {
                 matrica[gornjaGranicaRedova][i] = brojac++;
             }
+            
+            if(brojac>maxBroj) {break;
+            }
+            
             gornjaGranicaRedova--;
 
-           
+            
             for (int i = gornjaGranicaRedova; i >= donjaGranicaRedova; i--) {
                 matrica[i][donjaGranicaStupaca] = brojac++;
             }
+            
+            if(brojac>maxBroj) {break;
+            }
+            
             donjaGranicaStupaca++;
 
             
             for (int i = donjaGranicaStupaca; i <= gornjaGranicaStupaca; i++) {
                 matrica[donjaGranicaRedova][i] = brojac++;
             }
+            
+            if(brojac>maxBroj) {break;
+            }
+            
             donjaGranicaRedova++;
 
             
@@ -47,7 +59,7 @@ public class E04Ulaz {
             gornjaGranicaStupaca--;
         }
 
-        
+       
         for (int i = 0; i < redova; i++) {
             for (int j = 0; j < stupci; j++) {
                 System.out.print(matrica[i][j] + "\t");
